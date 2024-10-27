@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base::parent( ~{::#content}, ~{::title}, ~{::script})}">
+<head>
+    <title>Update Profile</title>
+</head>
+<body>
+
+    <div id="content" >
+
+      
+    <div data-th-if="${loggedInUser}" >
+        <div th:replace="~{user/siderbar::sidebarLogin}"></div>    
+     </div>
+
+     <div class="grid grid-cols-12">
+        
+        <div class=" md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
+
+        <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4 mt-5 mx-2 my-2">
+
+           <!-- Message Goes Here  -->
+
+           <div th:replace="~{message::messagebox}"> </div>
+
+
+        <!-- message Ends Here  -->
+<form th:action="@{'/user/contacts/add/'+${user.userId}}" method="post" data-th-object="${user}" novalidate>
+
+    
+    <div href="#" class="block  p-6 border-t-8 border-orange-500 border-b-2 rounded-xl bg-white shadow  dark:bg-gray-800 dark:border-black dark:border-b-2 dark:border-l-2 dark:border-r-2 dark:hover:bg-gray-700" style="
+    margin-top: 74px; " data-th-object="${user}">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Update Your Detail...</h5>
+
+      <!-- <form data-th-action="@{/user/profile/update}" method="post" data-th-object="${user}" novalidate> -->
+        <div class="mb-3">
+            <label for="name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
+            <input data-th-field="${user.name}" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Your Name" required />
+
+            <p data-th-if="${#fields.hasErrors('name')}"
+            data-th-errors="*{name}"
+            class="text-red-500 text-sm mt-1" ;> </p>
+
+          </div>
+          
+
+          <div class="mb-3">
+            <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+            <input data-th-field="*{email}" type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@email.com" required readonly/>
+
+            <p data-th-if="${#fields.hasErrors('email')}"
+            data-th-errors="*{email}"
+            class="text-red-500 text-sm mt-1" ;> </p>
+
+          </div>
+
+        
+
+          <div class="mb-3">
+            <label for="contact" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"> Phone Number</label>
+            <input data-th-field="${user.phoneNumber}" type="number" id="contact" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+            <p data-th-if="${#fields.hasErrors('phoneNumber')}"
+            data-th-errors="*{phoneNumber}"
+            class="text-red-500 text-sm mt-1" ;> </p>
+
+          </div>
+
+          <!-- About Texxt Area  -->
+          
+        <label for="message" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"> Write Something  About Yourself</label>
+        <textarea  data-th-field="*{about}" id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+        <p data-th-if="${#fields.hasErrors('about')}"
+        data-th-errors="*{about}"
+        class="text-red-500 text-sm mt-1" ;> </p>
+
+
+
+        <div class="mb-2 mt-4 bg-center flex justify-center gap-4">
+            <button type="suubmit" class="px-2 py-2 rounded-lg bg-blue-600 text-white font-semibold dark:bg-blue-700 dark:hover:bg-blue-800" >Update</button>
+            
+        </div>
+    
+      <!-- </form> -->
+    </div>
+
+
+</form>
+            
+        </div>
+
+    </div>
+
+    </div>
+
+<script>
+   
+</script>
+</body>
+</html>

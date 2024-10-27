@@ -1,0 +1,26 @@
+.divider {
+    position: relative;
+}
+.divider::after {
+    content: "/";
+    position: absolute;
+    top: 50%;
+    right: -12px;
+    transform: translateY(-50%);
+    color: gray;
+    font-size: 24px;
+    font-weight: bold;
+}
+.divider:last-child::after {
+    content: "";
+}
+@media (max-width: 768px) {
+    .divider::after {
+        content: "";
+    }
+}
+
+html{
+    scroll-behavior: smooth;
+}
+

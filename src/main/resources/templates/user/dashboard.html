@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base::parent( ~{::#content}, ~{::title}, ~{})}">
+<head>
+    <title data-th-text="${loggedInUser.name}+ ' | Dashboard'"> Login page</title>
+</head>
+<body>
+
+    <div id="content">
+
+      
+    <div data-th-if="${loggedInUser}" >
+        <div th:replace="~{user/siderbar::sidebarLogin}"></div>  
+     </div>
+
+        
+     <div class="sm:pl-64 pt-20 " style="height: 1000px" data-th-object="${user}">
+        <div class="flex justify-center flex-col items-center">
+         
+          
+    <div class="text-center md:flex md:gap-1 text-2xl font-bold pt-10 ">
+      <span class="p-3">Welcome </span>
+      <h1 data-th-text="*{name}" class="p-3 text-2xl"></h1>
+     <span class="p-3"> to Your Dashboard</span>
+    </div>
+
+
+    <!-- two cards -->
+
+    
+
+<div class="flex-col flex md:flex-row gap-5  p-5">
+  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <a href="#">
+        <img class="rounded-t-lg" src="./images/1.png" alt="" />
+    </a>
+    <div class="p-5">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">View Your Saved Contacts</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">View, Edit or Delete Your Saved Contacts </p>
+        <a data-th-href="@{/user/contacts}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 p-5">
+            View Contacts
+             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </a>
+    </div>
+  </div>
+  
+  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <a href="#">
+        <img class="rounded-t-lg" src="./images/1.png" alt="" />
+    </a>
+    <div class="p-5">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">View Profile</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">View Your Profile </p>
+        <a data-th-href="@{/user/profile}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Visit Profile
+             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </a>
+    </div>
+  </div>
+  
+  
+  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <a href="#">
+        <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+    </a>
+    <div class="p-5">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Add New Contacts</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Add a New Contact to Your Profile</p>
+        <a data-th-href="@{/user/contacts/add}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+           Add Contact
+             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </a>
+    </div>
+  </div>
+</div>
+
+
+        </div>
+      </div>
+
+
+      <script data-th-href="@{../js/script.js}"> </script>
+
+      
+    </div>
+
+    
+</body>
+</html>
